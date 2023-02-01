@@ -18,4 +18,13 @@ public class Book {
     @ManyToOne(cascade = CascadeType.ALL)
     @JsonBackReference
     Kullanici kullanici;
+
+    public Book( ) {
+
+    }
+
+    public Book(String name, String author) {
+        this.name = name;
+        this.author = author;
+    }
 }

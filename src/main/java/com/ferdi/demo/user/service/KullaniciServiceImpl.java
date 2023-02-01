@@ -3,6 +3,9 @@ package com.ferdi.demo.user.service;
 import com.ferdi.demo.user.entity.Book;
 import com.ferdi.demo.user.entity.Kullanici;
 import com.ferdi.demo.user.repo.KullaniciRepo;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,27 +16,21 @@ import java.util.List;
 public class KullaniciServiceImpl implements KullaniciService {
 
     private final KullaniciRepo kullaniciRepo;
-    @Override
+
+    @PersistenceContext()
+    private EntityManager entityManager;
+     @Override
     public List<Kullanici> getKullanicilar(){
 
         return kullaniciRepo.findAll();
     }
 
     @Override
+    @Transactional
     public Kullanici kaydet(Kullanici kullanici) {
 
-         Kullanici k=new Kullanici();
-        Book b=new Book();
-        k.setName(kullanici.getName());
-        k.setSurname(k.getSurname());
-        k.setAddress(kullanici.getAddress());
-        k.setBooks(kullanici.getBooks());
-
-        b.setName(kullanici.getBooks().get(0).getName());
-        b.setAuthor(kullanici.getBooks().get(0).getAuthor());
-        b.setKullanici(kullanici.getBooks().get(0).getKullanici());
-
-         return kullaniciRepo.save(kullanici);
+        entityManager.persist(kullanici);
+         return kullanici;
     }
 
     @Override

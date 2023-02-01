@@ -39,7 +39,13 @@ public  Kullanici kaydetKullanici(@RequestBody Kullanici kullanici){
 
     @GetMapping("/{id}")
     @JsonIgnore
-    public KullaniciResponseDto getKullanici(@PathVariable Long id){
+    public Kullanici getKullanici(@PathVariable Long id){
+
+        return kullaniciService.getKullanici(id);
+    }
+    @GetMapping("3/{id}")
+    @JsonIgnore
+    public KullaniciResponseDto getKullanici3(@PathVariable Long id){
 
         return KullaniciTekMapper.map(kullaniciService.getKullanici(id));
     }
