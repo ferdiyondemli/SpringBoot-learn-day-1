@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.10.xsd">
+    <changeSet id="product" author="dev" context="data">
+        <insert tableName="product">
+            <column name="id" valueNumeric="101"/>
+            <column name="VERSION" valueNumeric="0"/>
+            <column name="STATUS" value="ACTIVE"/>
+            <column name="NAME" value="JBL T460BT Kulak Üstü Bluetooth"/>
+            <column name="DESCRIPTION" value="JBL Pure Bass ses kalitesi"/>
+            <column name="STOCK_COUNT" valueNumeric="2"/>
+            <column name="PRICE" valueNumeric="269.65"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

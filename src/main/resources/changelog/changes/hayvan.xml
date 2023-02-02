@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.10.xsd">
+    <changeSet id="hayvan 2.2.2023 15:02" author="ferdi.yondemli"
+               context="sql">
+        <createSequence incrementBy="1"
+                        sequenceName="hayvan_sequence"
+                        startValue="1000"/>
+        <sql>
+            CREATE TABLE HAYVAN (
+                                    ID bigserial NOT NULL,
+                                     ADI  VARCHAR(255),
+                                     BESLENMETUR VARCHAR(255),
+                                     YAS int,
+                                    dddd INT,
+                                     CONSTRAINT pk_hayvan_id PRIMARY KEY (id)
+            );
+        </sql>
+        <sql>
+COMMENT ON TABLE HAYVAN IS 'Hayvan bilgilerini tutar.';
+ COMMENT ON COLUMN HAYVAN.ID IS 'Birincil anahtardır.';
+ COMMENT ON COLUMN HAYVAN.ADI IS 'Hayvan ad bilgisidir.';
+ COMMENT ON COLUMN HAYVAN.BESLENMETUR IS 'Hayvan Beslenme türüdür ';
+ COMMENT ON COLUMN HAYVAN.dddd IS 'Hayvan ayaksayı bilgisidir.';
+        </sql>
+    </changeSet>
+</databaseChangeLog>

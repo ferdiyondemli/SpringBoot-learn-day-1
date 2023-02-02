@@ -16,7 +16,7 @@ public class Hayvan {
     private BeslenmeTur beslenmeTur;
     @Column(name = "yas")
     private Integer yas;
-    @Column(name = "ayak_sayisi")
+    @Column(name = "sdfds")
     private Integer ayakSayisi;
 
     public Long getId() {
